@@ -36,7 +36,7 @@ $factory->define(User::class, function (Faker $faker) {
 
 
 
-$factory->define(Category::class, function (Faker\Generator $faker) {
+$factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'description' => $faker->paragraph(1),
@@ -46,7 +46,7 @@ $factory->define(Category::class, function (Faker\Generator $faker) {
 
 
 
-$factory->define(Product::class, function (Faker\Generator $faker) {
+$factory->define(Product::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'description' => $faker->paragraph(1),
@@ -60,7 +60,7 @@ $factory->define(Product::class, function (Faker\Generator $faker) {
 
 
 
-$factory->define(Transaction::class, function (Faker\Generator $faker) {
+$factory->define(Transaction::class, function (Faker $faker) {
 
     $seller = Seller::has('products')->get()->random();
     $buyer = User::all()->except($seller->id)->random();
